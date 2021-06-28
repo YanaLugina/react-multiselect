@@ -12,8 +12,8 @@
   "module": "dist/index.modern.js",
   "source": "src/index.js",
   "engines": {
-    "node": "^14.15.3",
-    "npm": "^6.14.9"
+    "node": "^14.17.1",
+    "npm": "^6.14.13"
   },
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
@@ -25,7 +25,8 @@
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "lint": "eslint src"
   },
   "peerDependencies": {
     "react": "^17.0.2"
