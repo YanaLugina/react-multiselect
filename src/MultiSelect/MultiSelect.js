@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo, useRef } from 'react'
-import CheckBoxCommon from '../CheckBoxes/CheckBoxesCommon'
+import CheckBox from '../CheckBoxes'
 import PropTypes from 'prop-types'
 
 import arrow from './assets/arrow-down.png'
@@ -40,14 +40,15 @@ const MultiSelect = ({
   useEffect(() => {
     setOptions(
       resources && resources.length > 0
-        ? resources.map((resource, i) => {
-          const stateCheckedStatus = selectedResources && selectedResources.length > 0
-            ? selectedResources.findIndex(
-               (item) => item[fieldNames.id] === resource[fieldNames.id]
-              ) !== -1
-            : false
-          return (
-              <CheckBoxCommon
+        ? resources.map((resource) => {
+            const stateCheckedStatus =
+              selectedResources && selectedResources.length > 0
+                ? selectedResources.findIndex(
+                    (item) => item[fieldNames.id] === resource[fieldNames.id]
+                  ) !== -1
+                : false
+            return (
+              <CheckBox
                 key={resource[fieldNames.id]}
                 blockInterestReasonId={resource[fieldNames.id]}
                 handleChecked={handleChange}
@@ -56,7 +57,7 @@ const MultiSelect = ({
                 withCheckBox={withCheckBox}
               />
             )
-        })
+          })
         : []
     )
   }, [resources, selectedResources, withCheckBox, handleChange, fieldNames])
@@ -64,7 +65,7 @@ const MultiSelect = ({
   useEffect(() => {
     setSelectedOptions(
       selectedResources && selectedResources.length > 0
-        ? selectedResources.map((item, i) => {
+        ? selectedResources.map((item) => {
             return (
               <div
                 className={style.pointSelected}
@@ -99,7 +100,7 @@ const MultiSelect = ({
   }
 
   const filterOptions = (
-    <>
+    <React.Fragment>
       <div
         className={style.modalMultiSelect}
         onClick={() => handleCloseSelect(toggleResourceSelect)}
@@ -124,7 +125,7 @@ const MultiSelect = ({
           {options}
         </div>
       </div>
-    </>
+    </React.Fragment>
   )
 
   return (
