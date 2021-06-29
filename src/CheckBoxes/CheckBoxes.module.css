@@ -1,0 +1,98 @@
+.checkBoxes {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: stretch;
+  align-items: center;
+  align-self: stretch;
+  color: #3863BB;
+  padding-right: 15px;
+  font-size: 14px;
+  line-height: 19px;
+  margin-bottom: 35px;
+  flex: 1 1 auto;
+}
+
+.checkBox {
+  min-height: 20px;
+  min-width: 20px;
+  margin-right: 8px;
+  border-radius: 3px;
+  text-align: center;
+  border: #4A87CA solid 1px;
+}
+
+.labelCheckBox {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  align-self: stretch;
+  padding-right: 15px;
+  padding-top: 12px;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.labelCheckBox:hover > .checkBox{
+  background-color: #F0F6FF;
+  color: #3863BB;
+  transition: all .2s ease-out;
+}
+
+.labelCheckBox.blueLabel {
+   color: #3863BB;
+ }
+
+.labelCheckBox.paddingConnection {
+   padding: 8px 0;
+}
+
+.labelCheckBox.forSecretary {
+  padding: 0;
+}
+
+.labelCheckBox.forSecretary.checkBox {
+  margin: 5px;
+}
+
+.labelCheckBox.forSecretary.checkBox:empty {
+  border: solid 1px #CCD1D9;
+}
+
+.labelCheckBox.greyWithDiv {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: #949DA8;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 7px 25px 9px;
+  text-align: left;
+}
+
+.labelCheckBox > div:first-child {
+  color: #262626;
+  font-weight: normal;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.labelCheckBox.greyWithDiv:hover {
+  background: #F2F8FF;
+}
+
+.labelWithBox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  padding-right: 15px;
+  padding-bottom: 35px;
+  color: #3863BB;
+}
