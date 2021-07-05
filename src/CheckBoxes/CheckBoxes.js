@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 
-import style from './CheckBoxes.module.css'
+import style from './CheckBoxes.module.scss'
 import cb from '../CheckBoxes/assets/checked.svg'
 
 const CheckBoxCommon = ({

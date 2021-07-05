@@ -2,8 +2,8 @@ import React, { useEffect, useState, useMemo, useRef } from 'react'
 import CheckBox from '../CheckBoxes'
 import PropTypes from 'prop-types'
 
-import arrow from './assets/arrow-down.png'
-import style from './multiselect.module.css'
+import arrow from './assets/arrow.svg'
+import style from './multiselect.module.scss'
 import isEmpty from '../utils/isEmpty.js'
 
 const MultiSelect = ({
@@ -18,6 +18,8 @@ const MultiSelect = ({
   setToggleResourceFilter,
   id,
   classes,
+  textResetFilter,
+  textChoose,
   fieldNames: field,
 }) => {
   const [options, setOptions] = useState([])
@@ -28,10 +30,6 @@ const MultiSelect = ({
   )
   const [styleFilterOptions, setStyleFilterOptions] = useState({})
   const currentElement = useRef(null)
-
-  useEffect(() => {
-    setToggleResourceFilter(false)
-  }, [setToggleResourceFilter])
 
   useEffect(() => {
     return () => setStyleFilterOptions({})
@@ -80,7 +78,7 @@ const MultiSelect = ({
 
   const initialPosts = (
     <div className={style.pointWithoutBg} key='Post1'>
-      Все посты
+      {textChoose}
     </div>
   )
 
@@ -111,7 +109,7 @@ const MultiSelect = ({
             id='clearFilter'
             className={style.changeOwner}
             onClick={handleDefaultClick}>
-            Сбросить
+            {textResetFilter}
           </button>
         ) : (
           <button id='nothingFilter' className={style.nothingFilter}>
@@ -136,7 +134,8 @@ const MultiSelect = ({
         (classes ? classes.map((item) => ' ' + style[item]).join('') : '')
       }
       key={`carsCards${id}`}
-      onClick={(e) => e.stopPropagation()}>
+      onClick={(e) => e.stopPropagation()}
+      id={id}>
       <div
         className={style.wrapSelected}
         onClick={() => handleCloseSelect(toggleResourceSelect)}
@@ -176,6 +175,8 @@ MultiSelect.propTypes = {
   setToggleResourceFilter: PropTypes.func,
   fieldNames: PropTypes.object,
   id: PropTypes.string,
+  textResetFilter: PropTypes.string,
+  textChoose: PropTypes.string,
   classes: PropTypes.arrayOf(
     PropTypes.oneOf([
       'marginInSettings',

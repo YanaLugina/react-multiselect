@@ -11,6 +11,8 @@ export const ExampleComponent = ({
   setToggleResourceFilter,
   id,
   selectedResource,
+  textResetFilter,
+  textChoose,
 }) => {
   return (
     <MultiSelectWrap
@@ -22,6 +24,8 @@ export const ExampleComponent = ({
       setToggleResourceFilter={setToggleResourceFilter}
       id={id}
       selectedResource={selectedResource}
+      textResetFilter={textResetFilter}
+      textChoose={textChoose}
     />
   )
 }
@@ -35,4 +39,6 @@ ExampleComponent.propTypes = {
   toggleResourceSelect: PropTypes.bool,
   setToggleResourceFilter: PropTypes.func,
   id: PropTypes.string,
+  textResetFilter: PropTypes.string,
+  textChoose: PropTypes.string,
 }

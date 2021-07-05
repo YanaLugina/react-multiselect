@@ -32,48 +32,43 @@
   -khtml-user-select: none;
   user-select: none;
   cursor: pointer;
-}
-
-.labelCheckBox:hover > .checkBox{
+&:hover {
+.checkBox{
   background-color: #F0F6FF;
   color: #3863BB;
   transition: all .2s ease-out;
 }
+}
 
-.labelCheckBox.blueLabel {
+&.blueLabel {
    color: #3863BB;
  }
 
-.labelCheckBox.paddingConnection {
+&.paddingConnection {
    padding: 8px 0;
-}
+ }
+&.forSecretary {
+   padding: 0;
 
-.labelCheckBox.forSecretary {
-  padding: 0;
-}
-
-.labelCheckBox.forSecretary.checkBox {
+.checkBox {
   margin: 5px;
 }
-
-.labelCheckBox.forSecretary.checkBox:empty {
+.checkBox:empty {
   border: solid 1px #CCD1D9;
 }
-
-.labelCheckBox.greyWithDiv {
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  color: #949DA8;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
-  padding: 7px 25px 9px;
-  text-align: left;
 }
 
-.labelCheckBox > div:first-child {
+&.greyWithDiv {
+   display: flex;
+   flex-flow: column;
+   justify-content: flex-start;
+   align-items: flex-start;
+   color: #949DA8;
+   font-weight: 600;
+   font-size: 12px;
+   line-height: 16px;
+   padding: 7px 25px 9px;
+div:first-child {
   color: #262626;
   font-weight: normal;
   justify-content: flex-start;
@@ -81,9 +76,12 @@
   font-size: 14px;
   line-height: 19px;
 }
+}
+text-align: left;
 
-.labelCheckBox.greyWithDiv:hover {
-  background: #F2F8FF;
+&.greyWithDiv:hover {
+   background: #F2F8FF;
+ }
 }
 
 .labelWithBox {

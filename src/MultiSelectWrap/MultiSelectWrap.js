@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import isEqual from 'lodash.isequal'
 import MultiSelect from '../MultiSelect'
 
 const MultiSelectWrap = ({
@@ -11,6 +12,8 @@ const MultiSelectWrap = ({
   setToggleResourceFilter,
   id,
   selectedResource,
+  textResetFilter,
+  textChoose
 }) => {
   const [selectedFilter, setSelectedFilter] = useState([])
   const [selectedResources, setSelectedResources] = useState([])
@@ -47,31 +50,26 @@ const MultiSelectWrap = ({
   }
 
   const handleUpdateFilter = () => {
-    if (!_.isEqual(selectedFilter, selectedResource)) {
+    if (!isEqual(selectedFilter, selectedResource)) {
       filterResource(selectedFilter)
     }
   }
 
   return (
-    <div>
-      FFFF
-      <MultiSelect
-        id={id}
-        resources={resources}
-        selectedResources={selectedResources}
-        handleChange={handleChange}
-        showAllResource={selectedFilter.length === 0}
-        handleDefault={handleDefault}
-        handleUpdateFilter={handleUpdateFilter}
-        withCheckBox={withCheckBox}
-        toggleResourceSelect={
-          id === 'collectPostFilter' ? toggleResourceSelect : false
-        }
-        setToggleResourceFilter={
-          id === 'collectPostFilter' ? setToggleResourceFilter : () => {}
-        }
-      />
-    </div>
+    <MultiSelect
+      id={id}
+      resources={resources}
+      selectedResources={selectedResources}
+      handleChange={handleChange}
+      showAllResource={selectedFilter.length === 0}
+      handleDefault={handleDefault}
+      handleUpdateFilter={handleUpdateFilter}
+      withCheckBox={withCheckBox}
+      toggleResourceSelect={toggleResourceSelect}
+      setToggleResourceFilter={setToggleResourceFilter}
+      textResetFilter={textResetFilter}
+      textChoose={textChoose}
+    />
   )
 }
 
@@ -84,6 +82,8 @@ MultiSelectWrap.propTypes = {
   toggleResourceSelect: PropTypes.bool,
   setToggleResourceFilter: PropTypes.func,
   id: PropTypes.string,
+  textResetFilter: PropTypes.string,
+  textChoose: PropTypes.string,
 }
 
 export default MultiSelectWrap
