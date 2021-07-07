@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 
 import style from './CheckBoxes.module.scss'
-import cb from '../CheckBoxes/assets/checked.svg'
 
 const CheckBoxCommon = ({
   textLabel,
@@ -11,10 +10,17 @@ const CheckBoxCommon = ({
   blockInterestReasonId,
   withCheckBox,
   children,
+  checkMark,
   classes = [],
 }) => {
   const [isChecked, setIsChecked] = useState(false)
-  const checked = useMemo(() => <img src={cb} alt='checked icon' />, [])
+  const checked = useMemo(() => {
+    if (checkMark) {
+      return <img src={checkMark} alt='checked icon' />
+    } else {
+      return 'X'
+    }
+  }, [checkMark])
 
   const [styleCk, setStyleCk] = useState(isChecked ? checked : '')
 
@@ -47,6 +53,7 @@ const CheckBoxCommon = ({
 
 CheckBoxCommon.propTypes = {
   textLabel: PropTypes.string,
+  checkMark: PropTypes.string,
   stateChecked: PropTypes.bool,
   handleChecked: PropTypes.func,
   children: PropTypes.node,

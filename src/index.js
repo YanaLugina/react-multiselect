@@ -2,7 +2,7 @@ import React from 'react'
 import MultiSelectWrap from './MultiSelectWrap'
 import PropTypes from 'prop-types'
 
-export const ExampleComponent = ({
+const MultiSelectReact = ({
   fetchAllResources,
   resources,
   filterResource,
@@ -13,6 +13,9 @@ export const ExampleComponent = ({
   selectedResource,
   textResetFilter,
   textChoose,
+  arrowDown,
+  checkMark,
+  numShowPreview,
 }) => {
   return (
     <MultiSelectWrap
@@ -26,11 +29,14 @@ export const ExampleComponent = ({
       selectedResource={selectedResource}
       textResetFilter={textResetFilter}
       textChoose={textChoose}
+      arrow={arrowDown}
+      checkMark={checkMark}
+      numShowPreview={numShowPreview}
     />
   )
 }
 
-ExampleComponent.propTypes = {
+MultiSelectReact.propTypes = {
   resources: PropTypes.array,
   selectedResource: PropTypes.array,
   fetchAllResources: PropTypes.func,
@@ -41,4 +47,9 @@ ExampleComponent.propTypes = {
   id: PropTypes.string,
   textResetFilter: PropTypes.string,
   textChoose: PropTypes.string,
+  arrowDown: PropTypes.string,
+  checkMark: PropTypes.string,
+  numShowPreview: PropTypes.number,
 }
+
+export default MultiSelectReact

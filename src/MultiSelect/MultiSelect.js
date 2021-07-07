@@ -2,9 +2,8 @@ import React, { useEffect, useState, useMemo, useRef } from 'react'
 import CheckBox from '../CheckBoxes'
 import PropTypes from 'prop-types'
 
-import arrow from './assets/arrow.svg'
-import style from './multiselect.module.scss'
 import isEmpty from '../utils/isEmpty.js'
+import style from './multiselect.module.scss'
 
 const MultiSelect = ({
   resources,
@@ -21,6 +20,9 @@ const MultiSelect = ({
   textResetFilter,
   textChoose,
   fieldNames: field,
+  arrow,
+  checkMark,
+  numShowPreview = 3,
 }) => {
   const [options, setOptions] = useState([])
   const [selectedOptions, setSelectedOptions] = useState([])
@@ -53,12 +55,20 @@ const MultiSelect = ({
                 stateChecked={stateCheckedStatus}
                 textLabel={resource[fieldNames.name]}
                 withCheckBox={withCheckBox}
+                checkMark={checkMark}
               />
             )
           })
         : []
     )
-  }, [resources, selectedResources, withCheckBox, handleChange, fieldNames])
+  }, [
+    resources,
+    selectedResources,
+    withCheckBox,
+    handleChange,
+    fieldNames,
+    checkMark,
+  ])
 
   useEffect(() => {
     setSelectedOptions(
@@ -67,7 +77,7 @@ const MultiSelect = ({
             return (
               <div
                 className={style.pointSelected}
-                key={`Post${item[fieldNames.id]}`}>
+                key={`Resourse${item[fieldNames.id]}`}>
                 {item[fieldNames.name]}
               </div>
             )
@@ -77,7 +87,7 @@ const MultiSelect = ({
   }, [selectedResources, fieldNames])
 
   const initialPosts = (
-    <div className={style.pointWithoutBg} key='Post1'>
+    <div className={style.pointWithoutBg} key='Resourse1'>
       {textChoose}
     </div>
   )
@@ -143,19 +153,26 @@ const MultiSelect = ({
         <div className={style.selectedOptions}>
           {showAllResource
             ? initialPosts
-            : selectedOptions.length > 3
-            ? selectedOptions.slice(0, 3)
+            : selectedOptions.length >
+              (numShowPreview !== 0 ? numShowPreview : 1)
+            ? selectedOptions.slice(
+                0,
+                numShowPreview !== 0 ? numShowPreview : 1
+              )
             : selectedOptions}
-          {selectedOptions.length > 3 ? (
-            <div className={style.countOverThree} key='overThree'>
-              +{selectedOptions.length - 3}
-            </div>
-          ) : (
-            ''
-          )}
+          {selectedOptions.length >
+          (numShowPreview !== 0 ? numShowPreview : 1) ? (
+              <div className={style.countOverThree} key='overThree'>
+              +
+                {selectedOptions.length -
+                (numShowPreview !== 0 ? numShowPreview : 1)}
+              </div>
+            ) : (
+              ''
+            )}
         </div>
         <div className={style.selectDropDownArrow}>
-          <img src={arrow} alt='arrow' />
+          {arrow ? <img src={arrow} alt='arrow' /> : ''}
         </div>
       </div>
       {toggleResourceSelect ? filterOptions : ''}
@@ -177,6 +194,9 @@ MultiSelect.propTypes = {
   id: PropTypes.string,
   textResetFilter: PropTypes.string,
   textChoose: PropTypes.string,
+  arrow: PropTypes.string,
+  checkMark: PropTypes.string,
+  numShowPreview: PropTypes.number,
   classes: PropTypes.arrayOf(
     PropTypes.oneOf([
       'marginInSettings',
