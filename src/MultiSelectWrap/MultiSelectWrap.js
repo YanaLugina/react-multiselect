@@ -13,9 +13,12 @@ const MultiSelectWrap = ({
   id,
   selectedResource,
   textResetFilter,
-  textChoose
+  textChoose,
+  arrow,
+  checkMark,
+  numShowPreview,
 }) => {
-  const [selectedFilter, setSelectedFilter] = useState([])
+  const [selectedFilter, setSelectedFilter] = useState(selectedResource)
   const [selectedResources, setSelectedResources] = useState([])
 
   useEffect(() => {
@@ -29,10 +32,6 @@ const MultiSelectWrap = ({
   useEffect(() => {
     fetchAllResources()
   }, [fetchAllResources])
-
-  useEffect(() => {
-    filterResource([])
-  }, [filterResource])
 
   const handleChange = (value, isChecked) => {
     setSelectedFilter((s) => {
@@ -69,6 +68,9 @@ const MultiSelectWrap = ({
       setToggleResourceFilter={setToggleResourceFilter}
       textResetFilter={textResetFilter}
       textChoose={textChoose}
+      arrow={arrow}
+      checkMark={checkMark}
+      numShowPreview={numShowPreview}
     />
   )
 }
@@ -84,6 +86,9 @@ MultiSelectWrap.propTypes = {
   id: PropTypes.string,
   textResetFilter: PropTypes.string,
   textChoose: PropTypes.string,
+  arrow: PropTypes.string,
+  checkMark: PropTypes.string,
+  numShowPreview: PropTypes.number,
 }
 
 export default MultiSelectWrap
