@@ -1,7 +1,7 @@
-import { ExampleComponent } from '.'
+import MultiSelectReact from '.'
 
 describe('ExampleComponent', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(MultiSelectReact).toBeTruthy()
   })
 })
