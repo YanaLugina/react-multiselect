@@ -1,6 +1,6 @@
 {
   "name": "@yana4961/react-multiselect",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Multiselect react component with checkboxes",
   "author": "YanaLugina &lt;yana4961@gmail.com&gt;",
   "license": "MIT",
@@ -63,9 +63,16 @@
     "example": "example"
   },
   "keywords": [
-    "todo",
-    "list",
-    "react"
+    "react",
+    "multiselect",
+    "react-multiselect",
+    "combobox",
+    "listlox",
+    "select",
+    "custom select",
+    "checked options",
+    "options",
+    "custom"
   ],
   "dependencies": {
     "lodash.isequal": "^4.5.0",
