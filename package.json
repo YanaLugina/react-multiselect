@@ -1,7 +1,7 @@
 {
   "name": "@yana4961/react-multiselect",
   "version": "1.0.1",
-  "description": "Multiselect react component with checkboxes",
+  "description": "Flexible multiselect react component with checkboxes on options, with preview boxes options",
   "author": "YanaLugina &lt;yana4961@gmail.com&gt;",
   "license": "MIT",
   "repository": {
@@ -72,7 +72,8 @@
     "custom select",
     "checked options",
     "options",
-    "custom"
+    "custom",
+    "dropdown"
   ],
   "dependencies": {
     "lodash.isequal": "^4.5.0",

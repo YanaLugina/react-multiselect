@@ -16,21 +16,22 @@ const App = () => {
     console.log('resultChecked', resultChecked);
   };
 
-  return <div>
+  // please, wrapped MultiSelectReact for set width
+  return <div style={{ width: 300 }}>
     <MultiSelectReact
-      fetchAllResources={() => console.log('Event emit after open/closing options')}
+      fetchAllResources={() => console.log('Event triggered after open/closing options')}
       resources={[{ id: 1, name: 'First' }, { id: 2, name: 'Second' }, { id: 3, name: 'Third' }, { id: 4, name: 'fourth' }, { id: 5, name: 'fifth' }]}
       filterResource={filterResource}
       withCheckBox
-      toggleResourceSelect={isOpen}
-      setToggleResourceFilter={() => setIsOpen(s => !s)}
+      toggleResourceSelect={isOpen} // state open options or close
+      setToggleResourceFilter={() => setIsOpen(s => !s)} // handler for toggle open/close options combobox
       id={'MultiSelectExample'}
-      selectedResource={[1, 3]}
-      textResetFilter={'All reset'}
-      textChoose={'Make a choice'}
-      arrowDown={arrowDown}
-      checkMark={checkMark}
-      numShowPreview={3}
+      selectedResource={[1, 3]}  // ids marked resources
+      textResetFilter={'All reset'} // text on button for reset all marked
+      textChoose={'Make a choice'}   // string for empty mulltiselect choice
+      arrowDown={arrowDown}      // this for set arrow for right side in input
+      checkMark={checkMark}   // img for marked selected checkboxes options, X by default
+      numShowPreview={3} // how many preview boxes show
     />
   </div>
 }
