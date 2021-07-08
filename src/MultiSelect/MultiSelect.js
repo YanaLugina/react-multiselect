@@ -22,7 +22,7 @@ const MultiSelect = ({
   fieldNames: field,
   arrow,
   checkMark,
-  numShowPreview = 3,
+  numShowPreview = 3
 }) => {
   const [options, setOptions] = useState([])
   const [selectedOptions, setSelectedOptions] = useState([])
@@ -67,7 +67,7 @@ const MultiSelect = ({
     withCheckBox,
     handleChange,
     fieldNames,
-    checkMark,
+    checkMark
   ])
 
   useEffect(() => {
@@ -77,7 +77,8 @@ const MultiSelect = ({
             return (
               <div
                 className={style.pointSelected}
-                key={`Resourse${item[fieldNames.id]}`}>
+                key={`Resourse${item[fieldNames.id]}`}
+              >
                 {item[fieldNames.name]}
               </div>
             )
@@ -118,7 +119,8 @@ const MultiSelect = ({
           <button
             id='clearFilter'
             className={style.changeOwner}
-            onClick={handleDefaultClick}>
+            onClick={handleDefaultClick}
+          >
             {textResetFilter}
           </button>
         ) : (
@@ -129,7 +131,8 @@ const MultiSelect = ({
         <div
           className={style.stringOption}
           key={`optionSelect${id}`}
-          onClick={(e) => e.stopPropagation()}>
+          onClick={(e) => e.stopPropagation()}
+        >
           {options}
         </div>
       </div>
@@ -145,11 +148,13 @@ const MultiSelect = ({
       }
       key={`carsCards${id}`}
       onClick={(e) => e.stopPropagation()}
-      id={id}>
+      id={id}
+    >
       <div
         className={style.wrapSelected}
         onClick={() => handleCloseSelect(toggleResourceSelect)}
-        ref={currentElement}>
+        ref={currentElement}
+      >
         <div className={style.selectedOptions}>
           {showAllResource
             ? initialPosts
@@ -162,14 +167,14 @@ const MultiSelect = ({
             : selectedOptions}
           {selectedOptions.length >
           (numShowPreview !== 0 ? numShowPreview : 1) ? (
-              <div className={style.countOverThree} key='overThree'>
+            <div className={style.countOverThree} key='overThree'>
               +
-                {selectedOptions.length -
+              {selectedOptions.length -
                 (numShowPreview !== 0 ? numShowPreview : 1)}
-              </div>
-            ) : (
-              ''
-            )}
+            </div>
+          ) : (
+            ''
+          )}
         </div>
         <div className={style.selectDropDownArrow}>
           {arrow ? <img src={arrow} alt='arrow' /> : ''}
@@ -204,9 +209,9 @@ MultiSelect.propTypes = {
       'allWidth',
       'withoutShadow',
       'withoutMargins',
-      'maxWidthStretch',
+      'maxWidthStretch'
     ])
-  ),
+  )
 }
 
 export default MultiSelect

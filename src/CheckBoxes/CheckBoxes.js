@@ -11,7 +11,7 @@ const CheckBoxCommon = ({
   withCheckBox,
   children,
   checkMark,
-  classes = [],
+  classes = []
 }) => {
   const [isChecked, setIsChecked] = useState(false)
   const checked = useMemo(() => {
@@ -43,7 +43,8 @@ const CheckBoxCommon = ({
         style.labelCheckBox + classes.map((item) => ' ' + style[item]).join('')
       }
       id={blockInterestReasonId}
-      onClick={handleClick}>
+      onClick={handleClick}
+    >
       {withCheckBox ? <div className={style.checkBox}>{styleCk}</div> : ''}
       {textLabel}
       {children || ''}
@@ -59,7 +60,7 @@ CheckBoxCommon.propTypes = {
   children: PropTypes.node,
   blockInterestReasonId: PropTypes.oneOfType([
     PropTypes.number,
-    PropTypes.string,
+    PropTypes.string
   ]),
   withCheckBox: PropTypes.bool,
   classes: PropTypes.arrayOf(
@@ -67,9 +68,9 @@ CheckBoxCommon.propTypes = {
       'paddingConnection',
       'blueLabel',
       'forSecretary',
-      'greyWithDiv',
+      'greyWithDiv'
     ])
-  ),
+  )
 }
 
 export default CheckBoxCommon
