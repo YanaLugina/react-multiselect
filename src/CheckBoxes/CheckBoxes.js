@@ -40,7 +40,7 @@ const CheckBoxCommon = ({
   return (
     <label
       className={
-        style.labelCheckBox + classes.map((item) => ' ' + style[item]).join('')
+        style.labelCheckBox + (isChecked ? ' ' + style.withoutCheckBox : '') + classes.map((item) => ' ' + style[item]).join('')
       }
       id={blockInterestReasonId}
       onClick={handleClick}

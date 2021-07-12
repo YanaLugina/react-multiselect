@@ -32,13 +32,22 @@
   -khtml-user-select: none;
   user-select: none;
   cursor: pointer;
-&:hover {
-.checkBox{
-  background-color: #F0F6FF;
-  color: #3863BB;
-  transition: all .2s ease-out;
-}
-}
+
+  &:hover {
+  .checkBox{
+    background-color: #F0F6FF;
+    color: #3863BB;
+    transition: all .2s ease-out;
+  }
+  .withoutCheckBox {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    background-color: #F0F6FF;
+    transition: all .2s ease-out;
+    flex-shrink: 1;
+  }
+  }
 
 &.blueLabel {
    color: #3863BB;
@@ -82,14 +91,25 @@ text-align: left;
 &.greyWithDiv:hover {
    background: #F2F8FF;
  }
+&.withoutCheckBox {
+  background-color: #F0F6FF;
+  transition: all .2s ease-out;
+  flex-shrink: 1;
+ }
+}
+
+.checked {
+  background-color: #F0F6FF;
+
 }
 
 .labelWithBox {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
   align-self: stretch;
+  justify-self: stretch;
+  justify-content: flex-start;
+  align-items: flex-start;
   padding-right: 15px;
   padding-bottom: 35px;
   color: #3863BB;
