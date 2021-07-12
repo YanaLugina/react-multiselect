@@ -15,7 +15,8 @@ const MultiSelectReact = ({
   textChoose,
   arrowDown,
   checkMark,
-  numShowPreview
+  numShowPreview,
+  classes
 }) => {
   return (
     <MultiSelectWrap
@@ -32,6 +33,7 @@ const MultiSelectReact = ({
       arrow={arrowDown}
       checkMark={checkMark}
       numShowPreview={numShowPreview}
+      classes={classes}
     />
   )
 }
@@ -49,7 +51,24 @@ MultiSelectReact.propTypes = {
   textChoose: PropTypes.string,
   arrowDown: PropTypes.string,
   checkMark: PropTypes.string,
-  numShowPreview: PropTypes.number
+  numShowPreview: PropTypes.number,
+  classes: PropTypes.arrayOf(
+    PropTypes.oneOf([
+      'marginInSettings',
+      'bgGrayUnder',
+      'allWidth',
+      'withoutShadow',
+      'withoutMargins',
+      'maxWidthStretch',
+      'paddingConnection',
+      'blueLabel',
+      'forSecretary',
+      'greyWithDiv',
+      'checkedBg',
+      'hoverBg',
+      'bgWithoutPadding'
+    ])
+  )
 }
 
 export default MultiSelectReact

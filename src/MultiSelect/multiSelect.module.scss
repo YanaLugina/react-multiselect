@@ -174,5 +174,9 @@
 
   .stringOption {
     padding: 9px 20px;
+
+    &.bgWithoutPadding {
+      padding: 9px 0;
+    }
   }
 }

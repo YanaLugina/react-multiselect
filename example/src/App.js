@@ -32,6 +32,7 @@ const App = () => {
       arrowDown={arrowDown}      // this for set arrow for right side in input
       checkMark={checkMark}   // img for marked selected checkboxes options, X by default
       numShowPreview={3} // how many preview boxes show
+      classes={['hoverBg', 'checkedBg', 'bgWithoutPadding']}
     />
   </div>
 }

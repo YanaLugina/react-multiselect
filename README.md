@@ -47,6 +47,7 @@ const App = () => {
       arrowDown={arrowDown}      // this for set arrow for right side in input
       checkMark={checkMark}   // img for marked selected checkboxes options, X by default
       numShowPreview={3} // how many preview boxes show
+      classes={['hoverBg', 'checkedBg', 'bgWithoutPadding']}
     />
   </div>
 }
@@ -55,8 +56,36 @@ export default App
 
 ```
 
-Example: 
+Example without classes: 
 ![multiselect](/example/images/example.png)
+
+Example with classes
+```
+<MultiSelectReact
+      fetchAllResources={() => console.log('Event triggered after open/closing options')}
+      resources={[{ id: 1, name: 'First' }, { id: 2, name: 'Second' }, { id: 3, name: 'Third' }, { id: 4, name: 'fourth' }, { id: 5, name: 'fifth' }]}
+      filterResource={filterResource}
+      withCheckBox
+      ...
+      classes={['hoverBg', 'checkedBg', 'bgWithoutPadding']}
+    />
+```
+![multiselect](/example/images/exampleWithHover.png)
+
+
+Example with classes and with withCheckBox=false:
+```
+<MultiSelectReact
+      fetchAllResources={() => console.log('Event triggered after open/closing options')}
+      resources={[{ id: 1, name: 'First' }, { id: 2, name: 'Second' }, { id: 3, name: 'Third' }, { id: 4, name: 'fourth' }, { id: 5, name: 'fifth' }]}
+      filterResource={filterResource}
+      withCheckBox={false}
+      ...
+      classes={['hoverBg', 'checkedBg', 'bgWithoutPadding']}
+    />
+```
+
+![multiselect](/example/images/exampleWithoutCB.png)
 
 ## License
 
