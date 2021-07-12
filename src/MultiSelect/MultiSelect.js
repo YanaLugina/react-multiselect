@@ -16,12 +16,12 @@ const MultiSelect = ({
   toggleResourceSelect,
   setToggleResourceFilter,
   id,
-  classes,
   textResetFilter,
   textChoose,
   fieldNames: field,
   arrow,
   checkMark,
+  classes = [],
   numShowPreview = 3
 }) => {
   const [options, setOptions] = useState([])
@@ -56,6 +56,7 @@ const MultiSelect = ({
                 textLabel={resource[fieldNames.name]}
                 withCheckBox={withCheckBox}
                 checkMark={checkMark}
+                classes={classes}
               />
             )
           })
@@ -129,7 +130,10 @@ const MultiSelect = ({
           </button>
         )}
         <div
-          className={style.stringOption}
+          className={
+            style.stringOption +
+            classes.map((item) => ' ' + style[item]).join('')
+          }
           key={`optionSelect${id}`}
           onClick={(e) => e.stopPropagation()}
         >
@@ -209,7 +213,10 @@ MultiSelect.propTypes = {
       'allWidth',
       'withoutShadow',
       'withoutMargins',
-      'maxWidthStretch'
+      'maxWidthStretch',
+      'checkedBg',
+      'hoverBg',
+      'bgWithoutPadding'
     ])
   )
 }

@@ -37,11 +37,17 @@ const CheckBoxCommon = ({
     setIsChecked((state) => !state)
   }
 
+  const styleNew = `${classes
+    .map(
+      (item) =>
+        ' ' +
+        (item !== 'checkedBg' ? style[item] : isChecked ? style[item] : '')
+    )
+    .join('')}`
+
   return (
     <label
-      className={
-        style.labelCheckBox + (isChecked ? ' ' + style.withoutCheckBox : '') + classes.map((item) => ' ' + style[item]).join('')
-      }
+      className={style.labelCheckBox + styleNew}
       id={blockInterestReasonId}
       onClick={handleClick}
     >
@@ -68,7 +74,10 @@ CheckBoxCommon.propTypes = {
       'paddingConnection',
       'blueLabel',
       'forSecretary',
-      'greyWithDiv'
+      'greyWithDiv',
+      'checkedBg',
+      'hoverBg',
+      'bgWithoutPadding'
     ])
   )
 }

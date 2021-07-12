@@ -16,7 +16,8 @@ const MultiSelectWrap = ({
   textChoose,
   arrow,
   checkMark,
-  numShowPreview
+  numShowPreview,
+  classes
 }) => {
   const [selectedFilter, setSelectedFilter] = useState(selectedResource)
   const [selectedResources, setSelectedResources] = useState([])
@@ -71,6 +72,7 @@ const MultiSelectWrap = ({
       arrow={arrow}
       checkMark={checkMark}
       numShowPreview={numShowPreview}
+      classes={classes}
     />
   )
 }
@@ -88,7 +90,24 @@ MultiSelectWrap.propTypes = {
   textChoose: PropTypes.string,
   arrow: PropTypes.string,
   checkMark: PropTypes.string,
-  numShowPreview: PropTypes.number
+  numShowPreview: PropTypes.number,
+  classes: PropTypes.arrayOf(
+    PropTypes.oneOf([
+      'marginInSettings',
+      'bgGrayUnder',
+      'allWidth',
+      'withoutShadow',
+      'withoutMargins',
+      'maxWidthStretch',
+      'paddingConnection',
+      'blueLabel',
+      'forSecretary',
+      'greyWithDiv',
+      'checkedBg',
+      'hoverBg',
+      'bgWithoutPadding'
+    ])
+  )
 }
 
 export default MultiSelectWrap
