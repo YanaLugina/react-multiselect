@@ -17,7 +17,8 @@ const MultiSelectWrap = ({
   arrow,
   checkMark,
   numShowPreview,
-  classes
+  classes,
+  fields
 }) => {
   const [selectedFilter, setSelectedFilter] = useState(selectedResource)
   const [selectedResources, setSelectedResources] = useState([])
@@ -25,10 +26,12 @@ const MultiSelectWrap = ({
   useEffect(() => {
     selectedFilter.length > 0
       ? setSelectedResources(
-          resources.filter((item) => selectedFilter.includes(item.id))
+          resources.filter((item) =>
+            selectedFilter.includes(item[fields.uniqId])
+          )
         )
       : setSelectedResources([])
-  }, [resources, selectedFilter])
+  }, [resources, selectedFilter, fields])
 
   useEffect(() => {
     fetchAllResources()
@@ -73,6 +76,7 @@ const MultiSelectWrap = ({
       checkMark={checkMark}
       numShowPreview={numShowPreview}
       classes={classes}
+      fields={fields}
     />
   )
 }
@@ -91,6 +95,7 @@ MultiSelectWrap.propTypes = {
   arrow: PropTypes.string,
   checkMark: PropTypes.string,
   numShowPreview: PropTypes.number,
+  fields: PropTypes.object,
   classes: PropTypes.arrayOf(
     PropTypes.oneOf([
       'marginInSettings',

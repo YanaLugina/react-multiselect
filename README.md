@@ -48,6 +48,7 @@ const App = () => {
       checkMark={checkMark}   // img for marked selected checkboxes options, X by default
       numShowPreview={3} // how many preview boxes show
       classes={['hoverBg', 'checkedBg', 'bgWithoutPadding']}
+      fields={{ uniqId: 'id', displayed: 'name' }}  // sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects
     />
   </div>
 }
@@ -56,6 +57,7 @@ export default App
 
 ```
 
+### Examples 
 Example without classes: 
 ![multiselect](/example/images/example.png)
 
@@ -86,6 +88,12 @@ Example with classes and with withCheckBox=false:
 ```
 
 ![multiselect](/example/images/exampleWithoutCB.png)
+
+### Props
+
+New Prop:
+
+ ``` fields ``` : sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects
 
 ## License
 

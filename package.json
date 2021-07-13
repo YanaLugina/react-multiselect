@@ -64,6 +64,8 @@
   },
   "keywords": [
     "react",
+    "react-component",
+    "input",
     "multiselect",
     "react-multiselect",
     "combobox",

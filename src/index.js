@@ -16,7 +16,8 @@ const MultiSelectReact = ({
   arrowDown,
   checkMark,
   numShowPreview,
-  classes
+  classes,
+  fields = { uniqId: 'id', displayed: 'name' }
 }) => {
   return (
     <MultiSelectWrap
@@ -34,6 +35,7 @@ const MultiSelectReact = ({
       checkMark={checkMark}
       numShowPreview={numShowPreview}
       classes={classes}
+      fields={fields}
     />
   )
 }
@@ -52,6 +54,7 @@ MultiSelectReact.propTypes = {
   arrowDown: PropTypes.string,
   checkMark: PropTypes.string,
   numShowPreview: PropTypes.number,
+  fields: PropTypes.object,
   classes: PropTypes.arrayOf(
     PropTypes.oneOf([
       'marginInSettings',
