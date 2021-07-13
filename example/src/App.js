@@ -33,6 +33,7 @@ const App = () => {
       checkMark={checkMark}   // img for marked selected checkboxes options, X by default
       numShowPreview={3} // how many preview boxes show
       classes={['hoverBg', 'checkedBg', 'bgWithoutPadding']}
+      fields={{ uniqId: 'id', displayed: 'name' }}  // sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects
     />
   </div>
 }

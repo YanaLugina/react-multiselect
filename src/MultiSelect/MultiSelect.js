@@ -1,8 +1,6 @@
-import React, { useEffect, useState, useMemo, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import CheckBox from '../CheckBoxes'
 import PropTypes from 'prop-types'
-
-import isEmpty from '../utils/isEmpty.js'
 import style from './multiselect.module.scss'
 
 const MultiSelect = ({
@@ -18,7 +16,7 @@ const MultiSelect = ({
   id,
   textResetFilter,
   textChoose,
-  fieldNames: field,
+  fields,
   arrow,
   checkMark,
   classes = [],
@@ -26,10 +24,6 @@ const MultiSelect = ({
 }) => {
   const [options, setOptions] = useState([])
   const [selectedOptions, setSelectedOptions] = useState([])
-  const fieldNames = useMemo(
-    () => (isEmpty(field) ? { id: 'id', name: 'name' } : field),
-    [field]
-  )
   const [styleFilterOptions, setStyleFilterOptions] = useState({})
   const currentElement = useRef(null)
 
@@ -44,16 +38,16 @@ const MultiSelect = ({
             const stateCheckedStatus =
               selectedResources && selectedResources.length > 0
                 ? selectedResources.findIndex(
-                    (item) => item[fieldNames.id] === resource[fieldNames.id]
+                    (item) => item[fields.uniqId] === resource[fields.uniqId]
                   ) !== -1
                 : false
             return (
               <CheckBox
-                key={resource[fieldNames.id]}
-                blockInterestReasonId={resource[fieldNames.id]}
+                key={resource[fields.uniqId]}
+                blockInterestReasonId={resource[fields.uniqId]}
                 handleChecked={handleChange}
                 stateChecked={stateCheckedStatus}
-                textLabel={resource[fieldNames.name]}
+                textLabel={resource[fields.displayed]}
                 withCheckBox={withCheckBox}
                 checkMark={checkMark}
                 classes={classes}
@@ -67,7 +61,7 @@ const MultiSelect = ({
     selectedResources,
     withCheckBox,
     handleChange,
-    fieldNames,
+    fields,
     checkMark
   ])
 
@@ -78,15 +72,15 @@ const MultiSelect = ({
             return (
               <div
                 className={style.pointSelected}
-                key={`Resourse${item[fieldNames.id]}`}
+                key={`Resourse${item[fields.uniqId]}`}
               >
-                {item[fieldNames.name]}
+                {item[fields.displayed]}
               </div>
             )
           })
         : []
     )
-  }, [selectedResources, fieldNames])
+  }, [selectedResources, fields])
 
   const initialPosts = (
     <div className={style.pointWithoutBg} key='Resourse1'>
@@ -199,13 +193,13 @@ MultiSelect.propTypes = {
   withCheckBox: PropTypes.bool,
   toggleResourceSelect: PropTypes.bool,
   setToggleResourceFilter: PropTypes.func,
-  fieldNames: PropTypes.object,
   id: PropTypes.string,
   textResetFilter: PropTypes.string,
   textChoose: PropTypes.string,
   arrow: PropTypes.string,
   checkMark: PropTypes.string,
   numShowPreview: PropTypes.number,
+  fields: PropTypes.object,
   classes: PropTypes.arrayOf(
     PropTypes.oneOf([
       'marginInSettings',
