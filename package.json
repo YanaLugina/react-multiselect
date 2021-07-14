@@ -1,6 +1,6 @@
 {
   "name": "@yana4961/react-multiselect",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Flexible multiselect react component with checkboxes on options, with preview boxes options",
   "author": "YanaLugina &lt;yana4961@gmail.com&gt;",
   "license": "MIT",
