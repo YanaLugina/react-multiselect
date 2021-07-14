@@ -8,8 +8,6 @@ const MultiSelectWrap = ({
   resources,
   filterResource,
   withCheckBox,
-  toggleResourceSelect,
-  setToggleResourceFilter,
   id,
   selectedResource,
   textResetFilter,
@@ -22,6 +20,7 @@ const MultiSelectWrap = ({
 }) => {
   const [selectedFilter, setSelectedFilter] = useState(selectedResource)
   const [selectedResources, setSelectedResources] = useState([])
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     selectedFilter.length > 0
@@ -68,8 +67,8 @@ const MultiSelectWrap = ({
       handleDefault={handleDefault}
       handleUpdateFilter={handleUpdateFilter}
       withCheckBox={withCheckBox}
-      toggleResourceSelect={toggleResourceSelect}
-      setToggleResourceFilter={setToggleResourceFilter}
+      toggleResourceSelect={isOpen}
+      setToggleResourceFilter={() => setIsOpen((s) => !s)}
       textResetFilter={textResetFilter}
       textChoose={textChoose}
       arrow={arrow}
@@ -87,8 +86,6 @@ MultiSelectWrap.propTypes = {
   fetchAllResources: PropTypes.func,
   filterResource: PropTypes.func,
   withCheckBox: PropTypes.bool,
-  toggleResourceSelect: PropTypes.bool,
-  setToggleResourceFilter: PropTypes.func,
   id: PropTypes.string,
   textResetFilter: PropTypes.string,
   textChoose: PropTypes.string,
@@ -107,10 +104,13 @@ MultiSelectWrap.propTypes = {
       'paddingConnection',
       'blueLabel',
       'forSecretary',
-      'greyWithDiv',
       'checkedBg',
       'hoverBg',
-      'bgWithoutPadding'
+      'bgWithoutPadding',
+      'withBorder',
+      'borderRadius3',
+      'withBorder',
+      'borderRadius3'
     ])
   )
 }
