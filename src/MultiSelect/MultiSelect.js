@@ -31,6 +31,16 @@ const MultiSelect = ({
     return () => setStyleFilterOptions({})
   }, [])
 
+  const classesCheckBox = [
+    'checkedBg',
+    'blueLabel',
+    'paddingConnection',
+    'greyWithDiv',
+    'forSecretary',
+    'bgWithoutPadding',
+    'hoverBg'
+  ]
+
   useEffect(() => {
     setOptions(
       resources && resources.length > 0
@@ -50,7 +60,9 @@ const MultiSelect = ({
                 textLabel={resource[fields.displayed]}
                 withCheckBox={withCheckBox}
                 checkMark={checkMark}
-                classes={classes}
+                classes={classes.filter((item) =>
+                  classesCheckBox.includes(item)
+                )}
               />
             )
           })
@@ -90,10 +102,10 @@ const MultiSelect = ({
 
   const handleCloseSelect = (bool) => {
     if (bool) {
-      setToggleResourceFilter(false)
+      setToggleResourceFilter()
       handleUpdateFilter()
     } else {
-      setToggleResourceFilter(true)
+      setToggleResourceFilter()
       setStyleFilterOptions({ width: currentElement.current.offsetWidth })
     }
   }
@@ -102,6 +114,20 @@ const MultiSelect = ({
     e.preventDefault()
     handleDefault()
   }
+  const buttonClear =
+    selectedOptions.length > 0 ? (
+      <button
+        id='clearFilter'
+        className={style.changeOwner}
+        onClick={handleDefaultClick}
+      >
+        {textResetFilter}
+      </button>
+    ) : (
+      <button id='nothingFilter' className={style.nothingFilter}>
+        −−−
+      </button>
+    )
 
   const filterOptions = (
     <React.Fragment>
@@ -110,19 +136,7 @@ const MultiSelect = ({
         onClick={() => handleCloseSelect(toggleResourceSelect)}
       />
       <div className={style.optionForSelection} style={styleFilterOptions}>
-        {selectedOptions.length > 0 ? (
-          <button
-            id='clearFilter'
-            className={style.changeOwner}
-            onClick={handleDefaultClick}
-          >
-            {textResetFilter}
-          </button>
-        ) : (
-          <button id='nothingFilter' className={style.nothingFilter}>
-            −−−
-          </button>
-        )}
+        {textResetFilter ? buttonClear : ''}
         <div
           className={
             style.stringOption +
@@ -141,8 +155,10 @@ const MultiSelect = ({
     <div
       className={
         style.wrapFilter +
-        ' ' +
-        (classes ? classes.map((item) => ' ' + style[item]).join('') : '')
+        classes
+          .filter((cl) => !['blueLabel', 'forSecretary'].includes(cl))
+          .map((item) => ' ' + style[item])
+          .join('')
       }
       key={`carsCards${id}`}
       onClick={(e) => e.stopPropagation()}
@@ -210,7 +226,12 @@ MultiSelect.propTypes = {
       'maxWidthStretch',
       'checkedBg',
       'hoverBg',
-      'bgWithoutPadding'
+      'bgWithoutPadding',
+      'withBorder',
+      'borderRadius3',
+      'paddingConnection',
+      'blueLabel',
+      'forSecretary'
     ])
   )
 }

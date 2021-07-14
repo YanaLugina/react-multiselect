@@ -71,13 +71,13 @@ CheckBoxCommon.propTypes = {
   withCheckBox: PropTypes.bool,
   classes: PropTypes.arrayOf(
     PropTypes.oneOf([
-      'paddingConnection',
-      'blueLabel',
-      'forSecretary',
-      'greyWithDiv',
       'checkedBg',
-      'hoverBg',
-      'bgWithoutPadding'
+      'blueLabel',
+      'paddingConnection',
+      'greyWithDiv',
+      'forSecretary',
+      'bgWithoutPadding',
+      'hoverBg'
     ])
   )
 }

@@ -7,8 +7,6 @@ const MultiSelectReact = ({
   resources,
   filterResource,
   withCheckBox,
-  toggleResourceSelect,
-  setToggleResourceFilter,
   id,
   selectedResource,
   textResetFilter,
@@ -25,8 +23,6 @@ const MultiSelectReact = ({
       resources={resources}
       filterResource={filterResource}
       withCheckBox={withCheckBox}
-      toggleResourceSelect={toggleResourceSelect}
-      setToggleResourceFilter={setToggleResourceFilter}
       id={id}
       selectedResource={selectedResource}
       textResetFilter={textResetFilter}
@@ -46,8 +42,6 @@ MultiSelectReact.propTypes = {
   fetchAllResources: PropTypes.func,
   filterResource: PropTypes.func,
   withCheckBox: PropTypes.bool,
-  toggleResourceSelect: PropTypes.bool,
-  setToggleResourceFilter: PropTypes.func,
   id: PropTypes.string,
   textResetFilter: PropTypes.string,
   textChoose: PropTypes.string,
@@ -69,7 +63,11 @@ MultiSelectReact.propTypes = {
       'greyWithDiv',
       'checkedBg',
       'hoverBg',
-      'bgWithoutPadding'
+      'bgWithoutPadding',
+      'withBorder',
+      'borderRadius3',
+      'withBorder',
+      'borderRadius3'
     ])
   )
 }
