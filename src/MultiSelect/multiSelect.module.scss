@@ -54,10 +54,17 @@
         background: rgba(0, 0, 0, 0.06);
 
         padding: 3px 8px;
+        transition: background-color .3s ease-out;
         @include paddingMargin;
 
         &.owner {
           background-color: #EFCFFF;
+          transition: background-color .3s ease-out;
+        }
+
+        &.hoverUnder:hover {
+          background-color: rgb(252, 239, 239);
+          transition: background-color .3s ease-out;
         }
       }
       .pointWithoutBg {
@@ -90,9 +97,30 @@
       max-width: 20px;
 
       padding: 10px 3px;
-
       flex-grow: 1;
-      @include paddingMargin;
+      transition: background-color .3s ease-out;
+
+      margin: 2.5px 5px;
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      user-select: none;
+
+      border-radius: 50px;
+      .arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      &.withoutArrow:hover {
+        background-color: rgb(240, 240, 240);
+        transition: background-color .3s ease-out;
+      }
+      &.withoutArrow {
+        padding: 10px 7px;
+        margin: 0;
+        min-width: 18px;
+        max-width: 18px;
+      }
     }
   }
 

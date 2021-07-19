@@ -16,7 +16,8 @@ const MultiSelectWrap = ({
   checkMark,
   numShowPreview,
   classes,
-  fields
+  fields,
+  selectedWithDel
 }) => {
   const [selectedFilter, setSelectedFilter] = useState(selectedResource)
   const [selectedResources, setSelectedResources] = useState([])
@@ -57,6 +58,10 @@ const MultiSelectWrap = ({
     }
   }
 
+  const handleDelSelect = (id) => {
+    selectedWithDel && handleChange(id, false)
+  }
+
   return (
     <MultiSelect
       id={id}
@@ -65,6 +70,7 @@ const MultiSelectWrap = ({
       handleChange={handleChange}
       showAllResource={selectedFilter.length === 0}
       handleDefault={handleDefault}
+      handleDelSelect={handleDelSelect}
       handleUpdateFilter={handleUpdateFilter}
       withCheckBox={withCheckBox}
       toggleResourceSelect={isOpen}
@@ -76,6 +82,7 @@ const MultiSelectWrap = ({
       numShowPreview={numShowPreview}
       classes={classes}
       fields={fields}
+      selectedWithDel={selectedWithDel}
     />
   )
 }
@@ -93,6 +100,7 @@ MultiSelectWrap.propTypes = {
   checkMark: PropTypes.string,
   numShowPreview: PropTypes.number,
   fields: PropTypes.object,
+  selectedWithDel: PropTypes.bool,
   classes: PropTypes.arrayOf(
     PropTypes.oneOf([
       'marginInSettings',

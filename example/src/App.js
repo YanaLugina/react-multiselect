@@ -32,6 +32,7 @@ const App = () => {
       numShowPreview={3} // how many preview boxes show
       classes={['hoverBg', 'checkedBg', 'bgWithoutPadding', 'borderRadius3']}
       fields={{ uniqId: 'id', displayed: 'name' }}  // sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects
+      selectedWithDel
     />
   </div>
 }
