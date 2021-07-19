@@ -19,6 +19,8 @@ const MultiSelect = ({
   fields,
   arrow,
   checkMark,
+  handleDelSelect,
+  selectedWithDel,
   classes = [],
   numShowPreview = 3
 }) => {
@@ -83,8 +85,12 @@ const MultiSelect = ({
         ? selectedResources.map((item) => {
             return (
               <div
-                className={style.pointSelected}
+                className={
+                  style.pointSelected +
+                  (selectedWithDel ? ' ' + style.hoverUnder : '')
+                }
                 key={`Resourse${item[fields.uniqId]}`}
+                onClick={() => handleDelSelect(item[fields.uniqId])}
               >
                 {item[fields.displayed]}
               </div>
@@ -106,8 +112,8 @@ const MultiSelect = ({
       handleUpdateFilter()
     } else {
       setToggleResourceFilter()
-      setStyleFilterOptions({ width: currentElement.current.offsetWidth })
     }
+    setStyleFilterOptions({ width: currentElement.current.offsetWidth })
   }
 
   const handleDefaultClick = (e) => {
@@ -166,7 +172,9 @@ const MultiSelect = ({
     >
       <div
         className={style.wrapSelected}
-        onClick={() => handleCloseSelect(toggleResourceSelect)}
+        onClick={() =>
+          !selectedWithDel && handleCloseSelect(toggleResourceSelect)
+        }
         ref={currentElement}
       >
         <div className={style.selectedOptions}>
@@ -190,8 +198,20 @@ const MultiSelect = ({
             ''
           )}
         </div>
-        <div className={style.selectDropDownArrow}>
-          {arrow ? <img src={arrow} alt='arrow' /> : ''}
+        <div
+          className={
+            style.selectDropDownArrow +
+            (selectedWithDel && !arrow ? ' ' + style.withoutArrow : '')
+          }
+          onClick={() =>
+            selectedWithDel && handleCloseSelect(toggleResourceSelect)
+          }
+        >
+          {arrow ? (
+            <img src={arrow} alt='arrow' />
+          ) : (
+            <div className={style.arrow} />
+          )}
         </div>
       </div>
       {toggleResourceSelect ? filterOptions : ''}
@@ -216,6 +236,8 @@ MultiSelect.propTypes = {
   checkMark: PropTypes.string,
   numShowPreview: PropTypes.number,
   fields: PropTypes.object,
+  handleDelSelect: PropTypes.func,
+  selectedWithDel: PropTypes.bool,
   classes: PropTypes.arrayOf(
     PropTypes.oneOf([
       'marginInSettings',

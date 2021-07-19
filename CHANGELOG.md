@@ -1,5 +1,10 @@
 #@yana4961/react-multiselect
 
+##2.1.0
+
+1) Was added props ```selectedWithDel``` that set function for delete selected elements after click on this elements box-preview in input. 
+When set props ```selectedWithDel```  was added css-style hover background-color under place for arrow drop-down
+
 ##2.0.0
 
 1) State for toggle open/close options moved into component

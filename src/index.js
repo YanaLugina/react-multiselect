@@ -15,6 +15,7 @@ const MultiSelectReact = ({
   checkMark,
   numShowPreview,
   classes,
+  selectedWithDel,
   fields = { uniqId: 'id', displayed: 'name' }
 }) => {
   return (
@@ -31,7 +32,11 @@ const MultiSelectReact = ({
       checkMark={checkMark}
       numShowPreview={numShowPreview}
       classes={classes}
-      fields={fields}
+      selectedWithDel={selectedWithDel}
+      fields={{
+        uniqId: Object.values(fields)[0] || 'id',
+        displayed: Object.values(fields)[1] || 'name'
+      }}
     />
   )
 }
@@ -49,6 +54,7 @@ MultiSelectReact.propTypes = {
   checkMark: PropTypes.string,
   numShowPreview: PropTypes.number,
   fields: PropTypes.object,
+  selectedWithDel: PropTypes.bool,
   classes: PropTypes.arrayOf(
     PropTypes.oneOf([
       'marginInSettings',

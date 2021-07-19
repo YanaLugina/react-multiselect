@@ -126,12 +126,35 @@ Example without button 'delete all' with border radius, with border, without sha
 
 ![multiselect](/example/images/example2v.png)
 
+Example with ```selectedWithDel``` props
+```
+<MultiSelectReact
+      fetchAllResources={() => console.log('Event triggered after changing options')}
+      resources={[{ id: 1, name: 'First' }, { id: 2, name: 'Second' }, { id: 3, name: 'Third' }, { id: 4, name: 'fourth' }, { id: 5, name: 'fifth' }]}
+      filterResource={filterResource}
+      withCheckBox={false}
+      id={'MultiSelectExample'}
+      selectedResource={selectedIds}  // ids marked resources
+      textChoose={'Make a choice'}   // string for empty mulltiselect choice
+      arrowDown={arrowDown}      // this for set arrow for right side in input
+      checkMark={checkMark}   // img for marked selected checkboxes options, X by default
+      numShowPreview={3} // how many preview boxes show
+      classes={['hoverBg', 'checkedBg', 'bgWithoutPadding', 'borderRadius3']}
+      fields={{ id: 'id', name: 'name' }}  // sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects
+      selectedWithDel
+    />
+```
+
+![multiselect](/example/images/exampleDelBtn.png)
 
 ### Props
 
-New Prop:
+New Props:
 
- ``` fields ``` : sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects
+```selectedWithDel```: that set function for delete selected elements after click on this elements box-preview in input. 
+When set props ```selectedWithDel```  was added css-style hover background-color under place for arrow drop-down.
+
+ ``` fields ``` : sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects.
 
 ## License
 
