@@ -60,6 +60,8 @@ const MultiSelectWrap = ({
 
   const handleDelSelect = (id) => {
     selectedWithDel && handleChange(id, false)
+    selectedWithDel &&
+      filterResource([...selectedFilter.filter((item) => item !== id)])
   }
 
   return (
