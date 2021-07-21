@@ -33,7 +33,12 @@ const CheckBoxCommon = ({
   }, [isChecked, checked])
 
   const handleClick = (e) => {
-    handleChecked(+e.currentTarget.id, !isChecked)
+    handleChecked(
+      typeof blockInterestReasonId === 'number'
+        ? +e.currentTarget.id
+        : e.currentTarget.id,
+      !isChecked
+    )
     setIsChecked((state) => !state)
   }
 
