@@ -1,5 +1,8 @@
 #@yana4961/react-multiselect
 
+##2.1.2
+1) Was added second argument to function ```filterResource```, that returned objects selected resources.
+
 ##2.1.1
 1) Was fixed bug ids in resource options with type of string. When ids was string this was crashed result.
 2) Was fixed bug with returned not updated result choose options, after delete them with click on selected boxes in input.

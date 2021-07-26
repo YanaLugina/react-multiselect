@@ -12,9 +12,9 @@ const App = () => {
   // Event triggered after change marked options,
   // if checked options equal selectedResource,
   // no changes have occurred, the event will not be triggered
-  const filterResource = (resultChecked) => {
-    setSelectedIds(resultChecked);
-    console.log('resultChecked', resultChecked);
+  const filterResource = (resultIds, resultObjects) => {
+    setSelectedIds(resultIds);
+    console.log('+++resultCheckedIds', resultIds, resultObjects);
   };
 
   // please, wrapped MultiSelectReact for set width
