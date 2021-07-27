@@ -3,12 +3,8 @@ import MultiSelectWrap from './MultiSelectWrap'
 import PropTypes from 'prop-types'
 
 const MultiSelectReact = ({
-  fetchAllResources,
-  resources,
-  filterResource,
   withCheckBox,
   id,
-  selectedResource,
   textResetFilter,
   textChoose,
   arrowDown,
@@ -16,6 +12,10 @@ const MultiSelectReact = ({
   numShowPreview,
   classes,
   selectedWithDel,
+  resources = [],
+  filterResource = () => {},
+  fetchAllResources = () => {},
+  selectedResource = [],
   fields = { uniqId: 'id', displayed: 'name' }
 }) => {
   return (

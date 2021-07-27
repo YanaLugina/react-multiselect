@@ -1,5 +1,8 @@
 #@yana4961/react-multiselect
 
+##2.2.0
+1) Was added default values for props:  ```resources, filterResource, fetchAllResources, selectedResource```, was added type descriptions to README.md
+
 ##2.1.2
 1) Was added second argument to function ```filterResource```, that returned objects selected resources.
 
