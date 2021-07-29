@@ -171,6 +171,7 @@ When set props ```selectedWithDel```  was added css-style hover background-color
 | numShowPreview | number | 3 | sets how many of the selected values ​​will display their title in the input | ```const numShowPreview = 5``` |
 | selectedWithDel | bool | false | when setting a value in ```true```, it is possible to delete the selected value options ​​by clicking on them | then set prop ```selectedWithDel=true``` |
 | classes | array\<String> | [] | set one of css class ``` 'marginInSettings', 'bgGrayUnder', 'allWidth', 'withoutShadow', 'withoutMargins', 'maxWidthStretch', 'paddingConnection', 'blueLabel', 'forSecretary', 'greyWithDiv', 'checkedBg', 'hoverBg', 'bgWithoutPadding', 'withBorder', 'borderRadius3', 'withBorder', 'borderRadius3'``` | set prop ```classes={['hoverBg', 'checkedBg', 'bgWithoutPadding', 'borderRadius3']} ``` |
+| textChoose | String | '' | Set text to input, when selected options is clear | ```'Select...'``` |
 
 ## License
 
