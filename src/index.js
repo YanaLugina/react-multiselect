@@ -71,7 +71,6 @@ MultiSelectReact.propTypes = {
       'hoverBg',
       'bgWithoutPadding',
       'withBorder',
-      'borderRadius3',
       'withBorder',
       'borderRadius3'
     ])

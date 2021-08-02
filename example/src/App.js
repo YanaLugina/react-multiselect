@@ -24,11 +24,12 @@ const App = () => {
       resources={[{ id: 1, name: 'First' }, { id: 2, name: 'Second' }, { id: 3, name: 'Third' }, { id: 4, name: 'fourth' }, { id: 5, name: 'fifth' }]}
       filterResource={filterResource}
       withCheckBox={false}
-      id={'MultiSelectExample'}
-      selectedResource={selectedIds}  // ids marked resources
-      textChoose={'Make a choice'}   // string for empty mulltiselect choice
+      id='MultiSelectExample'
+      selectedResource={selectedIds} // selected options ids
       arrowDown={arrowDown}      // this for set arrow for right side in input
       checkMark={checkMark}   // img for marked selected checkboxes options, X by default
+      textChoose='Choose..'   // string for empty multiselect choice
+      textResetFilter='Reset all'
       numShowPreview={3} // how many preview boxes show
       classes={['hoverBg', 'checkedBg', 'bgWithoutPadding', 'borderRadius3']}
       fields={{ uniqId: 'id', displayed: 'name' }}  // sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects
