@@ -18,11 +18,21 @@ const MultiSelectWrap = ({
   classes,
   fields,
   selectedWithDel,
+  nodeEmptyOptions,
   delSelectedOption
 }) => {
   const [selectedFilter, setSelectedFilter] = useState(selectedResource)
   const [selectedResources, setSelectedResources] = useState([])
   const [isOpen, setIsOpen] = useState(false)
+  const [numShow, setNumShow] = useState(numShowPreview)
+
+  useEffect(() => {
+    setNumShow(numShowPreview)
+  }, [numShowPreview])
+
+  const updateNumShow = (number) => {
+    setNumShow(number)
+  }
 
   useEffect(() => {
     selectedFilter.length > 0
@@ -68,6 +78,11 @@ const MultiSelectWrap = ({
       )
   }
 
+  const handleSetToggleResourceFilter = () => {
+    setIsOpen((s) => !s)
+    setNumShow(numShowPreview)
+  }
+
   return (
     <MultiSelect
       id={id}
@@ -84,15 +99,17 @@ const MultiSelectWrap = ({
       handleUpdateFilter={handleUpdateFilter}
       withCheckBox={withCheckBox}
       toggleResourceSelect={isOpen}
-      setToggleResourceFilter={() => setIsOpen((s) => !s)}
+      setToggleResourceFilter={handleSetToggleResourceFilter}
       textResetFilter={textResetFilter}
       textChoose={textChoose}
       arrow={arrow}
       checkMark={checkMark}
-      numShowPreview={numShowPreview}
+      numShowPreview={numShow}
       classes={classes}
       fields={fields}
       selectedWithDel={selectedWithDel}
+      updateNumShow={updateNumShow}
+      nodeEmptyOptions={nodeEmptyOptions}
     />
   )
 }
@@ -112,6 +129,7 @@ MultiSelectWrap.propTypes = {
   fields: PropTypes.object,
   selectedWithDel: PropTypes.bool,
   delSelectedOption: PropTypes.bool,
+  nodeEmptyOptions: PropTypes.node,
   classes: PropTypes.arrayOf(
     PropTypes.oneOf([
       'marginInSettings',

@@ -45,6 +45,8 @@ const MultiSelect = ({
   checkMark,
   handleDelSelect,
   selectedWithDel,
+  updateNumShow,
+  nodeEmptyOptions,
   classes = [],
   numShowPreview = 3
 }) => {
@@ -164,6 +166,7 @@ const MultiSelect = ({
       />
       <div className={style.optionForSelection} style={styleFilterOptions}>
         {textResetFilter ? buttonClear : ''}
+        {options.length === 0 && nodeEmptyOptions ? nodeEmptyOptions : ''}
         <div
           className={
             style.stringOption +
@@ -211,9 +214,16 @@ const MultiSelect = ({
           {selectedOptions.length >
           (numShowPreview !== 0 ? numShowPreview : 1) ? (
             <div className={style.countOverThree} key='overThree'>
-              +
-              {selectedOptions.length -
-                (numShowPreview !== 0 ? numShowPreview : 1)}
+              <button
+                className={style.buttonNum}
+                onClick={() => updateNumShow(999999)}
+                id={'MultiSelect__button_open_selected'}
+              >
+                {' '}
+                +
+                {selectedOptions.length -
+                  (numShowPreview !== 0 ? numShowPreview : 1)}
+              </button>
             </div>
           ) : (
             ''
@@ -258,7 +268,9 @@ MultiSelect.propTypes = {
   numShowPreview: PropTypes.number,
   fields: PropTypes.object,
   handleDelSelect: PropTypes.func,
+  updateNumShow: PropTypes.func,
   selectedWithDel: PropTypes.bool,
+  nodeEmptyOptions: PropTypes.node,
   classes: PropTypes.arrayOf(
     PropTypes.oneOf([
       'marginInSettings',
