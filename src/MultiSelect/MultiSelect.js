@@ -21,7 +21,7 @@ const SelectedOption = ({ id, selectedWithDel, label, handleDelSelect }) => {
 }
 
 SelectedOption.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   selectedWithDel: PropTypes.bool,
   label: PropTypes.string,
   handleDelSelect: PropTypes.func

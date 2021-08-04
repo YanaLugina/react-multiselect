@@ -17,7 +17,8 @@ const MultiSelectWrap = ({
   numShowPreview,
   classes,
   fields,
-  selectedWithDel
+  selectedWithDel,
+  delSelectedOption
 }) => {
   const [selectedFilter, setSelectedFilter] = useState(selectedResource)
   const [selectedResources, setSelectedResources] = useState([])
@@ -70,7 +71,11 @@ const MultiSelectWrap = ({
   return (
     <MultiSelect
       id={id}
-      resources={resources}
+      resources={
+        selectedWithDel && delSelectedOption
+          ? resources.filter((item) => !selectedFilter.includes(item.id))
+          : resources
+      }
       selectedResources={selectedResources}
       handleChange={handleChange}
       showAllResource={selectedFilter.length === 0}
@@ -106,6 +111,7 @@ MultiSelectWrap.propTypes = {
   numShowPreview: PropTypes.number,
   fields: PropTypes.object,
   selectedWithDel: PropTypes.bool,
+  delSelectedOption: PropTypes.bool,
   classes: PropTypes.arrayOf(
     PropTypes.oneOf([
       'marginInSettings',

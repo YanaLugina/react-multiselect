@@ -173,6 +173,7 @@ When set props ```selectedWithDel```  was added css-style hover background-color
 | classes | array\<String> | [] | set one of css class ``` 'marginInSettings', 'bgGrayUnder', 'allWidth', 'withoutShadow', 'withoutMargins', 'maxWidthStretch', 'paddingConnection', 'blueLabel', 'forSecretary', 'greyWithDiv', 'checkedBg', 'hoverBg', 'bgWithoutPadding', 'withBorder', 'withBorder', 'borderRadius3'``` | set prop ```classes={['hoverBg', 'checkedBg', 'bgWithoutPadding', 'borderRadius3']} ``` |
 | textChoose | String | '' | Set text to input, when selected options is clear | ```'Select...'``` |
 | textResetFilter | String | '' | Set text to button for clear all selected options. If this option == false, button not displayed | ```'Delete all'``` |
+| delSelectedOption | bool | false | Flag, to remove the selected option from modal with options. Must be used with ```selectedWithDel``` | const delSelectedOption = true |
 
 ## License
 
