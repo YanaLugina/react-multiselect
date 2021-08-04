@@ -29,7 +29,6 @@ const App = () => {
       arrowDown={arrowDown}      // this for set arrow for right side in input
       checkMark={checkMark}   // img for marked selected checkboxes options, X by default
       textChoose='Choose..'   // string for empty multiselect choice
-      textResetFilter='Reset all'
       numShowPreview={3} // how many preview boxes show
       classes={['hoverBg', 'checkedBg', 'bgWithoutPadding', 'borderRadius3']}
       fields={{ uniqId: 'id', displayed: 'name' }}  // sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects
