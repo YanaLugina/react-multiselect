@@ -33,6 +33,7 @@ const App = () => {
       classes={['hoverBg', 'checkedBg', 'bgWithoutPadding', 'borderRadius3']}
       fields={{ uniqId: 'id', displayed: 'name' }}  // sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects
       selectedWithDel
+      delSelectedOption
     />
   </div>
 }

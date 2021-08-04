@@ -12,6 +12,7 @@ const MultiSelectReact = ({
   numShowPreview,
   classes,
   selectedWithDel,
+  delSelectedOption,
   resources = [],
   filterResource = () => {},
   fetchAllResources = () => {},
@@ -33,6 +34,7 @@ const MultiSelectReact = ({
       numShowPreview={numShowPreview}
       classes={classes}
       selectedWithDel={selectedWithDel}
+      delSelectedOption={delSelectedOption}
       fields={{
         uniqId: Object.values(fields)[0] || 'id',
         displayed: Object.values(fields)[1] || 'name'
@@ -55,6 +57,7 @@ MultiSelectReact.propTypes = {
   numShowPreview: PropTypes.number,
   fields: PropTypes.object,
   selectedWithDel: PropTypes.bool,
+  delSelectedOption: PropTypes.bool,
   classes: PropTypes.arrayOf(
     PropTypes.oneOf([
       'marginInSettings',
