@@ -3,6 +3,30 @@ import CheckBox from '../CheckBoxes'
 import PropTypes from 'prop-types'
 import style from './multiselect.module.scss'
 
+const SelectedOption = ({ id, selectedWithDel, label, handleDelSelect }) => {
+  const handleDel = (id) => {
+    handleDelSelect(id)
+  }
+  return (
+    <div
+      className={
+        style.pointSelected + (selectedWithDel ? ' ' + style.hoverUnder : '')
+      }
+      key={`Resourse${id}`}
+      onClick={() => handleDel(id)}
+    >
+      {label}
+    </div>
+  )
+}
+
+SelectedOption.propTypes = {
+  id: PropTypes.string,
+  selectedWithDel: PropTypes.bool,
+  label: PropTypes.string,
+  handleDelSelect: PropTypes.func
+}
+
 const MultiSelect = ({
   resources,
   handleChange,
@@ -84,16 +108,13 @@ const MultiSelect = ({
       selectedResources && selectedResources.length > 0
         ? selectedResources.map((item) => {
             return (
-              <div
-                className={
-                  style.pointSelected +
-                  (selectedWithDel ? ' ' + style.hoverUnder : '')
-                }
-                key={`Resourse${item[fields.uniqId]}`}
-                onClick={() => handleDelSelect(item[fields.uniqId])}
-              >
-                {item[fields.displayed]}
-              </div>
+              <SelectedOption
+                key={item[fields.uniqId]}
+                id={item[fields.uniqId]}
+                label={item[fields.displayed]}
+                handleDelSelect={handleDelSelect}
+                selectedWithDel={selectedWithDel}
+              />
             )
           })
         : []
