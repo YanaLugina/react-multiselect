@@ -156,7 +156,7 @@ When set props ```selectedWithDel```  was added css-style hover background-color
 
  ``` fields ``` : sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects.
 
-##API
+## API
 
 | Prop | Type | Default | Description | Example |
 | :--- | :--- | :--- | :--- | :--- |
@@ -174,6 +174,7 @@ When set props ```selectedWithDel```  was added css-style hover background-color
 | textChoose | String | '' | Set text to input, when selected options is clear | ```'Select...'``` |
 | textResetFilter | String | '' | Set text to button for clear all selected options. If this option == false, button not displayed | ```'Delete all'``` |
 | delSelectedOption | bool | false | Flag, to remove the selected option from modal with options. Must be used with ```selectedWithDel``` | const delSelectedOption = true |
+| nodeEmptyOptions | node | undefined | Some node to display when options in the modal window are empty | ```const nodeEmptyOptions = <div style={{ display: 'flex', paddingTop: 12, alignItems: 'center', justifyContent: 'center' }}>Empty</div>``` |
 
 ## License
 

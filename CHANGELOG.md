@@ -1,7 +1,9 @@
 #@yana4961/react-multiselect
 
 ##2.2.2
-1) Was added flag ```delSelectedOption``` to remove the selected option from modal with options
+1) Was added flag ```delSelectedOption``` to remove the selected option from modal with options.
+2) Was added prop ```nodeEmptyOptions```: some node to display when options in the modal window are empty.
+3) The number of hidden options has been changed, now this is a button by clicking on which all hidden options are opened.
 
 ##2.2.1
 1) Was added type descriptions to README.md for prop ```textChoose```
@@ -30,4 +32,3 @@ When set props ```selectedWithDel```  was added css-style hover background-color
 
 ##1.2.0
 Added new prop ``` fields ``` for sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects
-

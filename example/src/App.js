@@ -34,6 +34,7 @@ const App = () => {
       fields={{ uniqId: 'id', displayed: 'name' }}  // sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects
       selectedWithDel
       delSelectedOption
+      nodeEmptyOptions={<div style={{ display: 'flex', paddingTop: 12, alignItems: 'center', justifyContent: 'center' }}>Empty</div>}
     />
   </div>
 }

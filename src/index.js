@@ -13,6 +13,7 @@ const MultiSelectReact = ({
   classes,
   selectedWithDel,
   delSelectedOption,
+  nodeEmptyOptions,
   resources = [],
   filterResource = () => {},
   fetchAllResources = () => {},
@@ -35,6 +36,7 @@ const MultiSelectReact = ({
       classes={classes}
       selectedWithDel={selectedWithDel}
       delSelectedOption={delSelectedOption}
+      nodeEmptyOptions={nodeEmptyOptions}
       fields={{
         uniqId: Object.values(fields)[0] || 'id',
         displayed: Object.values(fields)[1] || 'name'
@@ -58,6 +60,7 @@ MultiSelectReact.propTypes = {
   fields: PropTypes.object,
   selectedWithDel: PropTypes.bool,
   delSelectedOption: PropTypes.bool,
+  nodeEmptyOptions: PropTypes.node,
   classes: PropTypes.arrayOf(
     PropTypes.oneOf([
       'marginInSettings',
