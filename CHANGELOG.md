@@ -1,5 +1,9 @@
 #@yana4961/react-multiselect
 
+##2.2.4
+1) Was fixed bug with update selected option, when option was change
+2) Fixed bug with selected option, when using fields.uniqId !== 'id'
+
 ##2.2.2
 1) Was added flag ```delSelectedOption``` to remove the selected option from modal with options.
 2) Was added prop ```nodeEmptyOptions```: some node to display when options in the modal window are empty.

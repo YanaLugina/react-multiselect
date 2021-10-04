@@ -16,15 +16,19 @@ const MultiSelectWrap = ({
   checkMark,
   numShowPreview,
   classes,
-  fields,
   selectedWithDel,
   nodeEmptyOptions,
-  delSelectedOption
+  delSelectedOption,
+  fields
 }) => {
   const [selectedFilter, setSelectedFilter] = useState(selectedResource)
   const [selectedResources, setSelectedResources] = useState([])
   const [isOpen, setIsOpen] = useState(false)
   const [numShow, setNumShow] = useState(numShowPreview)
+
+  useEffect(() => {
+    setSelectedFilter(selectedResource)
+  }, [selectedResource])
 
   useEffect(() => {
     setNumShow(numShowPreview)
@@ -33,6 +37,18 @@ const MultiSelectWrap = ({
   const updateNumShow = (number) => {
     setNumShow(number)
   }
+
+  useEffect(() => {
+    setSelectedFilter((s) => {
+      return [
+        ...s.filter((ids) =>
+          resources.length > 0
+            ? resources.map((item) => item[fields.uniqId]).includes(ids)
+            : false
+        )
+      ]
+    })
+  }, [resources])
 
   useEffect(() => {
     selectedFilter.length > 0
@@ -74,7 +90,7 @@ const MultiSelectWrap = ({
     selectedWithDel &&
       filterResource(
         [...selectedFilter.filter((item) => item !== id)],
-        [...selectedResources.filter((item) => item.id !== id)]
+        [...selectedResources.filter((item) => item[fields.uniqId] !== id)]
       )
   }
 
@@ -88,7 +104,9 @@ const MultiSelectWrap = ({
       id={id}
       resources={
         selectedWithDel && delSelectedOption
-          ? resources.filter((item) => !selectedFilter.includes(item.id))
+          ? resources.filter(
+              (item) => !selectedFilter.includes(item[fields.uniqId])
+            )
           : resources
       }
       selectedResources={selectedResources}
