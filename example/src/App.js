@@ -7,7 +7,16 @@ import arrowDown from './asserts/arrow.svg'
 import checkMark from './asserts/checked.svg'
 
 const App = () => {
-  const [selectedIds, setSelectedIds] = useState([3]);   // ids marked resources
+  const [selectedIds, setSelectedIds] = useState([2, 3]);   // ids marked resources
+  const [resources, setResources] = useState(
+    [
+      { ids: 1, name: 'First' },
+      { ids: 2, name: 'Second' },
+      { ids: 3, name: 'Third' },
+      { ids: 4, name: 'fourth' },
+      { ids: 5, name: 'fifth' }
+      ]
+  );   // ids marked resources
 
   // Event triggered after change marked options,
   // if checked options equal selectedResource,
@@ -20,8 +29,8 @@ const App = () => {
   // please, wrapped MultiSelectReact for set width
   return <div style={{ width: 300 }}>
     <MultiSelectReact
-      fetchAllResources={() => console.log('Event triggered after changing options')}
-      resources={[{ id: 1, name: 'First' }, { id: 2, name: 'Second' }, { id: 3, name: 'Third' }, { id: 4, name: 'fourth' }, { id: 5, name: 'fifth' }]}
+      fetchAllResources={(i, a) => console.log('Event triggered after changing options', i, a)}
+      resources={resources}
       filterResource={filterResource}
       withCheckBox={false}
       id='MultiSelectExample'
@@ -31,11 +40,23 @@ const App = () => {
       textChoose='Choose..'   // string for empty multiselect choice
       numShowPreview={3} // how many preview boxes show
       classes={['hoverBg', 'checkedBg', 'bgWithoutPadding', 'borderRadius3']}
-      fields={{ uniqId: 'id', displayed: 'name' }}  // sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects
+      fields={{ uniqId: 'ids', displayed: 'name' }}  // sets fields 'uniqId' as value option and 'displayed' as displayed value option from 'resources' objects
       selectedWithDel
       delSelectedOption
       nodeEmptyOptions={<div style={{ display: 'flex', paddingTop: 12, alignItems: 'center', justifyContent: 'center' }}>Empty</div>}
     />
+    <button  onClick={() => setResources(s => {
+      s.pop()
+      return [...s]
+    })} >
+      Pop
+    </button>
+    <button  onClick={() => setResources(s => {
+      s.push({ id: 5, name: 'fifth' })
+      return [...s]
+    })} >
+      Push
+    </button>
   </div>
 }
 
