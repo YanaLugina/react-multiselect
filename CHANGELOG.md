@@ -1,6 +1,6 @@
 #@yana4961/react-multiselect
 
-##2.2.4
+##2.2.3 
 1) Was fixed bug with update selected option, when option was change
 2) Fixed bug with selected option, when using fields.uniqId !== 'id'
 
