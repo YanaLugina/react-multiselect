@@ -1,5 +1,10 @@
 #@yana4961/react-multiselect
 
+##3.0.0 (2022-01-24)
+1) Was updated node version
+2) Was deleted node-sass
+3) Was added sass
+
 ##2.2.3 
 1) Was fixed bug with update selected option, when option was change
 2) Fixed bug with selected option, when using fields.uniqId !== 'id'
